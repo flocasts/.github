@@ -1,0 +1,4 @@
+{
+    "name": "JIRA Autolink Action",
+    "description": "Automatically creates link on newly opened Pull Requests to Flocasts JIRA based on branch name."
+}
