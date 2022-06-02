@@ -43,3 +43,5 @@ Handles the following branch naming styles:
 - FLO-123/feature-description
 
 If there is another branch naming convention that (a) you've verified does not work and (b) you would like added, contact Solomon Duncan!
+
+(There is a known bug with having some special characters/numbers later in the PR name... If this issue happens to you a lot, let Solomon Duncan know! Currently it's rare enough that I haven't taken the time to fix the `sed`/regex)
