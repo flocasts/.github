@@ -16,12 +16,12 @@ jobs:
     steps:
       - name: Clean title
         id: clean_title
-        run: echo ::set-output name=title::$( echo '${{ github.event.pull_request.title }}' | sed 's/[A-Za-z][A-Za-z]*\s*[\/-]*[0-9][0-9]*[\/-:]*//')
+        run: echo "title=$( echo '${{ github.event.pull_request.title }}' | sed 's/[A-Za-z][A-Za-z]*\s*[\/-]*[0-9][0-9]*[\/-:]*//')"
       - name: Check for Ticket
         id: check-for-ticket
         run: |
           if [[ ${{ github.head_ref }} =~ ^[A-Za-z]+-[0-9]+ ]]; then
-              echo ::set-output name=match::true
+              echo "match=true" >> $GITHUB_OUTPUT
           fi
       - uses: the-wright-jamie/update-pr-info-action@v1
         if: steps.check-for-ticket.outputs.match == 'true'
