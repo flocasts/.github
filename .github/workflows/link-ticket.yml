@@ -5,6 +5,9 @@ on:
   pull_request:
     types: [opened, ready_for_review]
 
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   link_ticket:
@@ -20,7 +23,7 @@ jobs:
           if [[ ${{ github.head_ref }} =~ ^[A-Za-z]+-[0-9]+ ]]; then
               echo ::set-output name=match::true
           fi
-      - uses: tzkhan/pr-update-action@v2
+      - uses: the-wright-jamie/update-pr-info-action@v1
         if: steps.check-for-ticket.outputs.match == 'true'
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
