@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Clean title
         id: clean_title
-        run: echo "title=$( echo '${{ github.event.pull_request.title }}' | sed 's/[A-Za-z][A-Za-z]*\s*[\/-]*[0-9][0-9]*[\/-:]*\s//')"
+        run: echo "title=$( echo '${{ github.event.pull_request.title }}' | sed 's/[A-Za-z][A-Za-z]*\s*[\/-]*[0-9][0-9]*[\/-:]*\s//')" >> $GITHUB_OUTPUT
       - name: Check for Ticket
         id: check-for-ticket
         run: |
